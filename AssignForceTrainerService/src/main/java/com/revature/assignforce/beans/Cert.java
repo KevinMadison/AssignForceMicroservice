@@ -19,5 +19,30 @@ public class Cert {
 	private int certId;
 	
 	private String certName;
-	
+
+	public Cert() {
+		
+	}
+
+	public Cert(int certId, String certName) {
+		super();
+		this.certId = certId;
+		this.certName = certName;
+	}
+
+	public int getCertId() {
+		return certId;
+	}
+
+	public void setCertId(int certId) {
+		this.certId = certId;
+	}
+
+	public String getCertName() {
+		return certName;
+	}
+
+	public void setCertName(String certName) {
+		this.certName = certName;
+	}
 }
