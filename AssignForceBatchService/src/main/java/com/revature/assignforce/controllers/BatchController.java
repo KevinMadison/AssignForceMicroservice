@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.assignforce.beans.Batch;
@@ -20,18 +22,18 @@ import com.revature.assignforce.service.BatchService;
 public class BatchController {
 
 	@Autowired
-	BatchService service;
+	BatchService batchService;
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public List<Batch> getAll(){
-		return service.getAll();
+		return batchService.getAll();
 	}
 	
 	@RequestMapping(value="/batchid", method=RequestMethod.POST, 
 			consumes=MediaType.APPLICATION_JSON_VALUE, 
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Batch> getByUsername(@RequestBody int id){
-		Optional<Batch> t = service.findById(id);
+		Optional<Batch> t = batchService.findById(id);
 		if(!t.isPresent()) return new ResponseEntity<Batch>(HttpStatus.NOT_FOUND);
 		return new ResponseEntity<Batch>(t.get(), HttpStatus.OK);
 	}
@@ -40,7 +42,7 @@ public class BatchController {
 			consumes=MediaType.APPLICATION_JSON_VALUE, 
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Batch> update(@RequestBody Batch b){
-			b = service.update(b);
+			b = batchService.update(b);
 			if(b == null) return new ResponseEntity<Batch>(HttpStatus.BAD_REQUEST);
 			return new ResponseEntity<Batch>(b, HttpStatus.CREATED);
 	}
@@ -49,7 +51,7 @@ public class BatchController {
 			consumes=MediaType.APPLICATION_JSON_VALUE, 
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Batch> add(@RequestBody Batch b){
-			b = service.create(b);
+			b = batchService.create(b);
 			if(b == null) return new ResponseEntity<Batch>(HttpStatus.BAD_REQUEST);
 			return new ResponseEntity<Batch>(b, HttpStatus.CREATED);
 	}
@@ -58,7 +60,7 @@ public class BatchController {
 			consumes=MediaType.APPLICATION_JSON_VALUE, 
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Batch> delete(@RequestBody int id){
-			service.delete(id);
+		batchService.delete(id);
 			return new ResponseEntity<Batch>(HttpStatus.CREATED);
 	}
 	
