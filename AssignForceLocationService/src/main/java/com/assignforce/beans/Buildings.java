@@ -20,7 +20,7 @@ public class Buildings {
 	//Building_ID, Building_Name, Location_ID, Unavailability
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="buildings")
-	@SequenceGenerator(name="BUILDING_ID")
+	@SequenceGenerator(name="buildings", sequenceName="buildings_seq", allocationSize=1)
 	@Column(name="BUILDING_ID")
 	private int building_id;
 	
