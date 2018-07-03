@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.Skills;
+import com.revature.service.SkillService;
 import com.revature.service.SkillServiceImpl;
 
 @RestController
@@ -20,7 +21,7 @@ import com.revature.service.SkillServiceImpl;
 public class SkillController implements CurriculumController<Skills> {
 	
 	@Autowired
-	SkillServiceImpl service;
+	SkillService service;
 
 	@Override
 	@RequestMapping(method=RequestMethod.GET)

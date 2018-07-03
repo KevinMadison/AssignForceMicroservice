@@ -4,7 +4,7 @@ Implementation-Version: 1.0-SNAPSHOT
 Built-By: thorgrimfelblade
 Implementation-Vendor-Id: com.assignforce
 Build-Jdk: 1.8.0_161
-Implementation-URL: http://projects.spring.io/spring-boot/userservice/
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/userservice
 Created-By: Maven Integration for Eclipse
-Implementation-Vendor: Pivotal Software, Inc.
 

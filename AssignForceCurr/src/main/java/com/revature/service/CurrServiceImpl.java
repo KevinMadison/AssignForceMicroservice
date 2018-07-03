@@ -3,10 +3,16 @@ package com.revature.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
 import com.revature.beans.Curriculum;
 import com.revature.repos.CurrRepo;
 
-public class CurrServiceImpl implements CurriculumService<Curriculum> {
+@Service
+@Transactional
+public class CurrServiceImpl implements CurrService {
 
 	private CurrRepo currRepo;
 	

@@ -2,6 +2,7 @@ package com.assignforce.controllers;
 
 import com.assignforce.models.Setting;
 import com.assignforce.service.SettingService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class SettingController {
@@ -16,7 +18,7 @@ public class SettingController {
     @Autowired
     private SettingService s_service;
 
-    @RequestMapping(method=RequestMethod.POST, value = "/users",
+    @RequestMapping(method=RequestMethod.POST, value = "/settings",
             consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Setting> add(@RequestBody Setting setting){
         Setting s = s_service.add(setting);
@@ -31,7 +33,9 @@ public class SettingController {
     }
     @RequestMapping(method = RequestMethod.GET, value = "/setting/id/{id}")
     public ResponseEntity<Setting> findById(@PathVariable int id){
-        return new ResponseEntity<>(s_service.getById(id), HttpStatus.OK);
+    	Optional<Setting> s = s_service.getById(id);
+		if(!s.isPresent()) return new ResponseEntity<Setting>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<Setting>(s.get(), HttpStatus.OK);
     }
     @RequestMapping(method = RequestMethod.PUT, value = "/settings",
             produces = MediaType.APPLICATION_JSON_VALUE)

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -31,7 +32,9 @@ public class UserController {
     }
     @RequestMapping(method = RequestMethod.GET, value = "/user/id/{id}")
     public ResponseEntity<User> findById(@PathVariable int id){
-        return new ResponseEntity<>(u_service.getById(id), HttpStatus.OK);
+    	Optional<User> u = u_service.getById(id);
+		if(!u.isPresent()) return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<User>(u.get(), HttpStatus.OK);
     }
     @RequestMapping(method = RequestMethod.GET, value = "/user/username/{email}")
     public ResponseEntity<User> findByUsername(@PathVariable String email){

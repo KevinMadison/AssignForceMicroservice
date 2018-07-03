@@ -3,10 +3,16 @@ package com.revature.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
 import com.revature.beans.Skills;
 import com.revature.repos.SkillRepo;
 
-public class SkillServiceImpl implements CurriculumService<Skills> {
+@Service
+@Transactional
+public class SkillServiceImpl implements SkillService {
 
 	private SkillRepo skillRepo;
 	
