@@ -27,6 +27,9 @@ public class Skill {
 	@Column(name="UNAVAILABLEID")
 	private int id;
 	
+	@Column(name = "SKILLNAME") 
+	private String skillName;
+	
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="TRAINER_SKILLS",
 			joinColumns=@JoinColumn(name="SKILL_ID"),
@@ -38,6 +41,53 @@ public class Skill {
 			joinColumns=@JoinColumn(name="SKILL_ID"),
 			inverseJoinColumns=@JoinColumn(name="CURRICULUM_ID"))
 	private Set<CurriculumIdHolder> curricula;
+
+	//constructors
+	public Skill() {
+		super();
+	}
+
+	public Skill(int id, String name, Set<TrainerIdHolder> trainers, Set<CurriculumIdHolder> curricula) {
+		super();
+		this.id = id;
+		this.skillName = name;
+		this.trainers = trainers;
+		this.curricula = curricula;
+	}
+
+	
+	//Getters and Setters
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getSkillName() {
+		return skillName;
+	}
+
+	public void setSkillName(String skillName) {
+		this.skillName = skillName;
+	}
+
+	public Set<TrainerIdHolder> getTrainers() {
+		return trainers;
+	}
+
+	public void setTrainers(Set<TrainerIdHolder> trainers) {
+		this.trainers = trainers;
+	}
+
+	public Set<CurriculumIdHolder> getCurricula() {
+		return curricula;
+	}
+
+	public void setCurricula(Set<CurriculumIdHolder> curricula) {
+		this.curricula = curricula;
+	}
 	
 	
 }
