@@ -3,19 +3,25 @@ package com.assignforce.beans;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="Buildings")
 public class Buildings {
 
 	//Building_ID, Building_Name, Location_ID, Unavailability
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="buildings")
 	@SequenceGenerator(name="BUILDING_ID")
+	@Column(name="BUILDING_ID")
 	private int building_id;
 	
 	private String building_name;
@@ -24,9 +30,12 @@ public class Buildings {
 
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private Set<Rooms> rooms;
+	
+	public Buildings() {
+		super();
+	}
 
-	
-	
+
 	/**
 	 * 	CONSTRUCTOR
 	 */

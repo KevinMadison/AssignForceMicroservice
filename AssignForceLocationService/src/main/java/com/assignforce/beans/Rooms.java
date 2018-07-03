@@ -1,15 +1,21 @@
 package com.assignforce.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="Rooms")
 public class Rooms {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="rooms")
 	@SequenceGenerator(name="room_id")
+	@Column(name="ROOM_ID")
 	private int room_id;
 	
 	private String room_name;
@@ -17,6 +23,10 @@ public class Rooms {
 	private int unavailability_id;
 	
 	
+	public Rooms() {
+		super();
+	}
+
 	/**
 	 * 	CONSTRUCTOR
 	 */

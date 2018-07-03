@@ -3,6 +3,7 @@ package com.assignforce.beans;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,6 +22,7 @@ public class Locations {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="location")
 	@SequenceGenerator(name="LOCATION_ID")
+	@Column(name="LOCATION_ID")
 	private int location_id;
 	
 	private String location_name;
