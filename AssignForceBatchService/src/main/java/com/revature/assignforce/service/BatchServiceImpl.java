@@ -9,38 +9,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.assignforce.beans.Batch;
-import com.revature.assignforce.repos.BatchRepo;
+import com.revature.assignforce.repos.BatchRepository;
 
-@Service
 @Transactional
+@Service
 public class BatchServiceImpl implements BatchService {
 
 	@Autowired
-	private BatchRepo batchRepo;
+	private BatchRepository batchRepository;
 	
 	@Override
 	public List<Batch> getAll() {
-		return batchRepo.findAll();
+		return batchRepository.findAll();
 	}
 
 	@Override
 	public Optional<Batch> findById(int id) {
-		return batchRepo.findById(id);
+		return batchRepository.findById(id);
 	}
 
 	@Override
 	public Batch update(Batch b) {
-		return batchRepo.save(b);
+		return batchRepository.save(b);
 	}
 
 	@Override
 	public Batch create(Batch b) {
-		return batchRepo.save(b);
+		return batchRepository.save(b);
 	}
 
 	@Override
 	public void delete(int id) {
-		batchRepo.deleteById(id);
+		batchRepository.deleteById(id);
 	}
 
 }
