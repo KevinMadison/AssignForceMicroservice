@@ -24,7 +24,7 @@ public class Skill {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="skill")
 	@SequenceGenerator(name="skill", sequenceName="skill_seq", allocationSize=1)
-	@Column(name="UNAVAILABLEID")
+	@Column(name="SKILL_ID")
 	private int id;
 	
 	@Column(name = "SKILLNAME") 
@@ -33,13 +33,13 @@ public class Skill {
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="TRAINER_SKILLS",
 			joinColumns=@JoinColumn(name="SKILL_ID"),
-			inverseJoinColumns=@JoinColumn(name="TRAINER_ID"))
+			inverseJoinColumns=@JoinColumn(name="TRAINERID"))
 	private Set<TrainerIdHolder> trainers;
 	
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="CURRICULUM_SKILLS",
 			joinColumns=@JoinColumn(name="SKILL_ID"),
-			inverseJoinColumns=@JoinColumn(name="CURRICULUM_ID"))
+			inverseJoinColumns=@JoinColumn(name="CURRICULUMID"))
 	private Set<CurriculumIdHolder> curricula;
 
 	//constructors
