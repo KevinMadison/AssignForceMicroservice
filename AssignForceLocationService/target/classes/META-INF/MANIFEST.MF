@@ -1,11 +1,10 @@
 Manifest-Version: 1.0
-Implementation-Title: AssignForceDiscoveryService
+Implementation-Title: AssignForceLocationService
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: Shawn Madison
 Implementation-Vendor-Id: com.assignforce
 Build-Jdk: 1.8.0_161
-Implementation-URL: http://projects.spring.io/spring-boot/AssignForceD
- iscoveryService/
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/AssignForceLocationService
 Created-By: Maven Integration for Eclipse
-Implementation-Vendor: Pivotal Software, Inc.
 
