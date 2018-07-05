@@ -6,234 +6,87 @@
   <name>AvailabilityService</name>
   <description>The Availability Microservice of AssignForce</description>
   
-  <properties>
+ <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.3.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
 
-		<maven.compiler.source>1.8</maven.compiler.source>
-
-		<maven.compiler.target>1.8</maven.compiler.target>
-
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
 	</properties>
-
-
-
-	<dependencyManagement>
 
 		<dependencies>
 
-			<dependency>
-
-				<groupId>io.spring.platform</groupId>
-
-				<artifactId>platform-bom</artifactId>
-
-				<version>2.0.3.RELEASE</version>
-
-				<type>pom</type>
-
-				<scope>import</scope>
-
-			</dependency>
-
-		</dependencies>
-
-	</dependencyManagement>
-
-
-
-	<dependencies>
-
-
+			 <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>Brixton.SR4</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
 
 		<dependency>
-
-			<groupId>org.springframework</groupId>
-
-			<artifactId>spring-beans</artifactId>
-
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version>2.0.0.RELEASE</version>
 		</dependency>
 
 		<dependency>
-
-			<groupId>org.springframework</groupId>
-
-			<artifactId>spring-context</artifactId>
-
-		</dependency>
-
-		<dependency>
-
-			<groupId>org.springframework</groupId>
-
-			<artifactId>spring-orm</artifactId>
-
-		</dependency>
-
-
-
-		<dependency>
-
-			<groupId>commons-dbcp</groupId>
-
-			<artifactId>commons-dbcp</artifactId>
-
-		</dependency>
-
-		<dependency>
-
-			<groupId>commons-logging</groupId>
-
-			<artifactId>commons-logging</artifactId>
-
-		</dependency>
-
-		<!-- if you need to reinstall the jdbc jar to your .m2 folder open cmd 
-
-			prompt, cd into jars folder or wherever you have the jar installed, run the 
-
-			following mvn install:install-file -Dfile=ojdbc7.jar -DgroupId=com.oracle 
-
-			-DartifactId=ojdbc7 -Dversion=11.2.0 -Dpackaging=jar -->
-
-		<dependency>
-
-			<groupId>com.oracle</groupId>
-
-			<artifactId>ojdbc7</artifactId>
-
-			<version>12.1.0.2</version>
-
-		</dependency>
-
-		<dependency>
-
-			<groupId>org.hibernate</groupId>
-
-			<artifactId>hibernate-core</artifactId>
-
-		</dependency>
-
-		<dependency>
-
-			<groupId>org.hibernate</groupId>
-
-			<artifactId>hibernate-entitymanager</artifactId>
-
-		</dependency>
-
-		<dependency>
-
-			<groupId>org.springframework.data</groupId>
-
-			<artifactId>spring-data-jpa</artifactId>
-
-		</dependency>
-
-
-
-		<dependency>
-
-			<groupId>com.fasterxml.jackson.core</groupId>
-
-			<artifactId>jackson-databind</artifactId>
-
-		</dependency>
-
-		<dependency>
-
-			<groupId>org.springframework</groupId>
-
-			<artifactId>spring-webmvc</artifactId>
-
-		</dependency>
-
-		
-
-		<!-- Spring Boot Starters are a set of convenient dependency descriptors 
-
-			that you can include in your application. You get a one-stop-shop for all 
-
-			the Spring and related technology that you need without having to hunt through 
-
-			sample code and copy paste loads of dependency descriptors. For example, 
-
-			if you want to get started using Spring and JPA for database access just 
-
-			include the spring-boot-starter-data-jpa dependency in your project, and 
-
-			you are good to go. -->
-
-
-
-		<dependency>
-
 			<groupId>org.springframework.boot</groupId>
-
 			<artifactId>spring-boot-starter-web</artifactId>
-
 		</dependency>
 
 		<dependency>
-
-			<!-- Implementing a data access layer of an application has been cumbersome 
-
-				for quite a while. Too much boilerplate code has to be written to execute 
-
-				simple queries as well as perform pagination, and auditing. Spring Data JPA 
-
-				aims to significantly improve the implementation of data access layers by 
-
-				reducing the effort to the amount that’s actually needed. As a developer 
-
-				you write your repository interfaces, including custom finder methods, and 
-
-				Spring will provide the implementation automatically. -->
-
 			<groupId>org.springframework.boot</groupId>
-
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-
-		</dependency>
-
-		<dependency>
-
-			<groupId>com.oracle</groupId>
-
-			<artifactId>ojdbc7</artifactId>
-
-			<version>12.1.0.2</version>
-
-		</dependency>
-
-		<dependency>
-
-			<groupId>org.springframework.boot</groupId>
-
-			<artifactId>spring-boot-devtools</artifactId>
-
-			<optional>true</optional>
-
-		</dependency>
-
-		<dependency>
-
-			<groupId>org.springframework.boot</groupId>
-
-			<artifactId>spring-boot-starter-actuator</artifactId>
-
-		</dependency>
-
-
-
-		<dependency>
-
-			<groupId>junit</groupId>
-
-			<artifactId>junit</artifactId>
-
+			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc7</artifactId>
+			<version>12.1.0.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
   
 </project>

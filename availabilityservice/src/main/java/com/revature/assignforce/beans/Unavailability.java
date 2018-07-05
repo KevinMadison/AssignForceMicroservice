@@ -33,11 +33,11 @@ public class Unavailability {
 		private Timestamp endDate;
 		
 		@ManyToOne(fetch=FetchType.EAGER)
-		@JoinColumn(name="ROOM_ID")
+		@JoinColumn(name="ROOMID")
 		private RoomIdHolder roomId;
 		
 		@ManyToOne(fetch=FetchType.EAGER)
-		@JoinColumn(name="TRAINER_ID")
+		@JoinColumn(name="TRAINERID")
 		private TrainerIdHolder trainerId;
 
 		public Unavailability() {
