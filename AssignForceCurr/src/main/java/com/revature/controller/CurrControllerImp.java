@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.Curriculum;
+import com.revature.service.CurrService;
 import com.revature.service.CurrServiceImpl;
 
 
@@ -22,7 +23,7 @@ import com.revature.service.CurrServiceImpl;
 public class CurrControllerImp implements CurriculumController<Curriculum> {
 
 	@Autowired
-	CurrServiceImpl service;
+	CurrService service;
 	
 	@Override
 	@RequestMapping(method=RequestMethod.GET)

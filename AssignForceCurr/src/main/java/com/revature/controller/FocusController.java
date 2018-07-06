@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.Focus;
+import com.revature.service.FocusService;
 import com.revature.service.FocusServiceImpl;
 
 @RestController
@@ -24,7 +25,7 @@ import com.revature.service.FocusServiceImpl;
 public class FocusController implements CurriculumController<Focus> {
 
 	@Autowired
-	FocusServiceImpl service;
+	FocusService service;
 	
 	@Override
 	@RequestMapping(method=RequestMethod.GET)

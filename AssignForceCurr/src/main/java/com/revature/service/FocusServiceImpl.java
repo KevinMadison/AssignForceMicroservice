@@ -3,10 +3,16 @@ package com.revature.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
 import com.revature.beans.Focus;
 import com.revature.repos.FocusRepo;
 
-public class FocusServiceImpl implements CurriculumService<Focus> {
+@Service
+@Transactional
+public class FocusServiceImpl implements FocusService {
 
 	private FocusRepo focusRepo;
 	

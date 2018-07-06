@@ -1,16 +1,28 @@
 package com.revature.beans;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.springframework.stereotype.Component;
+
 
 @Entity
+@Component
 @Table(name="Curriculum")
 public class Curriculum {
 
@@ -23,19 +35,23 @@ public class Curriculum {
 	
 	private String name;
 	
-	@OneToMany
-	private int skillId;
-
-
-	public Curriculum(int currID, String name) {
-		super();
-		this.currId = currID;
-		this.name = name;
-	}
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinTable(name="CURR_SKILLS",
+	joinColumns=@JoinColumn(name="CURR_ID"),
+	inverseJoinColumns=@JoinColumn(name="SKILL_ID"))
+	private Set<Skills> CURR_skills;
 
 
 	public Curriculum() {
 		super();
+	}
+
+
+	public Curriculum(int currId, String name, Set<Skills> cURR_skills) {
+		super();
+		this.currId = currId;
+		this.name = name;
+		CURR_skills = cURR_skills;
 	}
 
 
@@ -44,9 +60,15 @@ public class Curriculum {
 	}
 
 
-	public void setCurrID(int currID) {
-		this.currId = currID;
+
+
+
+	public void setCurrId(int currId) {
+		this.currId = currId;
 	}
+
+
+
 
 
 	public String getName() {
@@ -54,11 +76,30 @@ public class Curriculum {
 	}
 
 
+
+
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+
+
+
+
+
+	public Set<Skills> getCURR_skills() {
+		return CURR_skills;
+	}
+
+
+
+
+
+	public void setCURR_skills(Set<Skills> cURR_skills) {
+		CURR_skills = cURR_skills;
+	}
+
+
 	
 	
 }

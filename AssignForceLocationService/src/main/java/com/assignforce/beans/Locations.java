@@ -20,8 +20,8 @@ public class Locations {
 	//Location_ID, Location_Name, Unavailability_ID
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="location")
-	@SequenceGenerator(name="LOCATION_ID")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="locations")
+	@SequenceGenerator(name="locations", sequenceName="locations_seq", allocationSize=1)
 	@Column(name="LOCATION_ID")
 	private int location_id;
 	

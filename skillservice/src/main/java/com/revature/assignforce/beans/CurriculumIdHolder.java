@@ -2,6 +2,7 @@ package com.revature.assignforce.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 @Table(name="CURRICULUMIDHOLDER")
 public class CurriculumIdHolder {
 	
+	@Id
 	@Column(name="CURRICULUMID")
 	private int id;
 

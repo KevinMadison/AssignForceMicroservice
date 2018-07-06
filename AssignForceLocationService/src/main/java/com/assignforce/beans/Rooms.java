@@ -14,7 +14,7 @@ public class Rooms {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="rooms")
-	@SequenceGenerator(name="room_id")
+	@SequenceGenerator(name="rooms", sequenceName="rooms_seq", allocationSize=1)
 	@Column(name="ROOM_ID")
 	private int room_id;
 	
