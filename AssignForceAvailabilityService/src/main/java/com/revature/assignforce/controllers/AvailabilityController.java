@@ -1,4 +1,4 @@
-package com.revature.assignforce.controller;
+package com.revature.assignforce.controllers;
 
 import java.util.List;
 

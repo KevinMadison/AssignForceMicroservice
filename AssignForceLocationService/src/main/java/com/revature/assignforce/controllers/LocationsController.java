@@ -1,4 +1,4 @@
-package com.revature.assignforce.control;
+package com.revature.assignforce.controllers;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,54 +12,54 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.assignforce.beans.Rooms;
-import com.revature.assignforce.service.RoomsService;
+import com.revature.assignforce.beans.Locations;
+import com.revature.assignforce.service.LocationsService;
 
 @RestController
-@RequestMapping("/rooms")
-public class RoomsController {
+@RequestMapping("/locations")
+public class LocationsController {
 
 	@Autowired
-	RoomsService service;
+	LocationsService service;
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public List<Rooms> getAll(){
+	public List<Locations> getAll(){
 		return service.getAll();
 	}
 	
 	@RequestMapping(value="/trainerid", method=RequestMethod.POST, 
 			consumes=MediaType.APPLICATION_JSON_VALUE, 
 			produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Rooms> getByUsername(@RequestBody int id){
-		Optional<Rooms> t = service.findById(id);
-		if(!t.isPresent()) return new ResponseEntity<Rooms>(HttpStatus.NOT_FOUND);
-		return new ResponseEntity<Rooms>(t.get(), HttpStatus.OK);
+	public ResponseEntity<Locations> getByUsername(@RequestBody int id){
+		Optional<Locations> t = service.findById(id);
+		if(!t.isPresent()) return new ResponseEntity<Locations>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<Locations>(t.get(), HttpStatus.OK);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, 
 			consumes=MediaType.APPLICATION_JSON_VALUE, 
 			produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Rooms> update(@RequestBody Rooms t){
+	public ResponseEntity<Locations> update(@RequestBody Locations t){
 			t = service.update(t);
-			if(t == null) return new ResponseEntity<Rooms>(HttpStatus.BAD_REQUEST);
-			return new ResponseEntity<Rooms>(t, HttpStatus.CREATED);
+			if(t == null) return new ResponseEntity<Locations>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<Locations>(t, HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, 
 			consumes=MediaType.APPLICATION_JSON_VALUE, 
 			produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Rooms> add(@RequestBody Rooms t){
+	public ResponseEntity<Locations> add(@RequestBody Locations t){
 			t = service.create(t);
-			if(t == null) return new ResponseEntity<Rooms>(HttpStatus.BAD_REQUEST);
-			return new ResponseEntity<Rooms>(t, HttpStatus.CREATED);
+			if(t == null) return new ResponseEntity<Locations>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<Locations>(t, HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, 
 			consumes=MediaType.APPLICATION_JSON_VALUE, 
 			produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Rooms> delete(@RequestBody int id){
+	public ResponseEntity<Locations> delete(@RequestBody int id){
 			service.delete(id);
-			return new ResponseEntity<Rooms>(HttpStatus.CREATED);
+			return new ResponseEntity<Locations>(HttpStatus.CREATED);
 	}
 	
 	
