@@ -72,7 +72,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-        
+		<!--   Hystrix Dependency
+		<dependency>
+    		<groupId>com.netflix.hystrix</groupId>
+    		<artifactId>hystrix-core</artifactId>
+    		<version>x.y.z</version>
+		</dependency>
+        -->
     </dependencies>
 
     <dependencyManagement>

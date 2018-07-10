@@ -17,6 +17,17 @@ import com.revature.assignforce.beans.Curriculum;
 import com.revature.assignforce.service.CurrService;
 import com.revature.assignforce.service.CurrServiceImpl;
 
+/*
+ * For implementation details on Hystrix I used
+ * 
+ * ------------------------------------------------
+ * https://www.youtube.com/watch?v=CmJzW-e2Dqk
+ * ------------------------------------------------
+ * 
+ * During our iteration Hystrix was given towards the end with no detail on how to handle
+ * failures on the system. Therefore when these details are given a Hystrix Implementation 
+ * will need to be made
+ */
 
 @RestController
 @RequestMapping("/Curr")
@@ -24,6 +35,9 @@ public class CurrControllerImp implements CurriculumController<Curriculum> {
 
 	@Autowired
 	CurrService service;
+	
+	//@Autowired
+	//private HystrixImpl hystrixImpl;
 	
 	@Override
 	@RequestMapping(method=RequestMethod.GET)
