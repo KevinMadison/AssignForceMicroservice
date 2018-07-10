@@ -3,12 +3,15 @@ package com.revature.assignforce.service;
 import java.util.List;
 import java.util.Optional;
 
-public interface CurriculumService<T> {
+import com.revature.assignforce.beans.Curriculum;
+
+public interface CurriculumService {
 	
 
-	List<T> getAll();
-	Optional<T> findById(int id);
-	T create(T obj);
-	T update(T obj);
+	List<Curriculum> getAll();
+	Optional<Curriculum> findById(int id);
+	Curriculum create(Curriculum c);
+	Curriculum update(Curriculum c);
+	void delete(int id);
 	
 }

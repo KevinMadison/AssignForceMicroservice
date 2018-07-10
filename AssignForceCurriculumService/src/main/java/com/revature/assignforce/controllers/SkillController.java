@@ -18,19 +18,17 @@ import com.revature.assignforce.service.SkillServiceImpl;
 
 @RestController
 @RequestMapping("/skills")
-public class SkillController implements CurriculumController<Skills> {
+public class SkillController{
 	
 	@Autowired
 	SkillService service;
 
-	@Override
 	@RequestMapping(method=RequestMethod.GET)
 	public List<Skills> getAll() {
 		
 		return service.getAll();
 	}
 
-	@Override
 	@RequestMapping(value="/skillid", method=RequestMethod.POST, 
 	consumes=MediaType.APPLICATION_JSON_VALUE, 
 	produces=MediaType.APPLICATION_JSON_VALUE)
@@ -40,7 +38,6 @@ public class SkillController implements CurriculumController<Skills> {
 		return new ResponseEntity<Skills>(c.get(), HttpStatus.OK);
 	}
 
-	@Override
 	@RequestMapping(method=RequestMethod.PUT, 
 	consumes=MediaType.APPLICATION_JSON_VALUE, 
 	produces=MediaType.APPLICATION_JSON_VALUE)
@@ -50,7 +47,6 @@ public class SkillController implements CurriculumController<Skills> {
 		return new ResponseEntity<Skills>(c, HttpStatus.CREATED);
 	}
 
-	@Override
 	@RequestMapping(method=RequestMethod.POST, 
 	consumes=MediaType.APPLICATION_JSON_VALUE, 
 	produces=MediaType.APPLICATION_JSON_VALUE)

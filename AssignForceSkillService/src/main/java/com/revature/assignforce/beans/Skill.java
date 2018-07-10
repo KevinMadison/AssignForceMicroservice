@@ -41,6 +41,8 @@ public class Skill {
 			joinColumns=@JoinColumn(name="SKILL_ID"),
 			inverseJoinColumns=@JoinColumn(name="CURRICULUMID"))
 	private Set<CurriculumIdHolder> curricula;
+	
+	private Boolean isActive;
 
 	//constructors
 	public Skill() {
@@ -87,6 +89,14 @@ public class Skill {
 
 	public void setCurricula(Set<CurriculumIdHolder> curricula) {
 		this.curricula = curricula;
+	}
+
+	public Boolean getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
 	}
 	
 	
